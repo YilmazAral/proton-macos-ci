@@ -1,0 +1,25 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: mrvictory1 <108172910+mrvictory1@users.noreply.github.com>
+Date: Mon, 19 Oct 2026 19:44:02 +0300
+Subject: [PATCH 2/2] HACK: lsteamclient: stub Steam_NotifyMissingInterface
+
+---
+ lsteamclient/steamclient_main.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/lsteamclient/steamclient_main.c b/lsteamclient/steamclient_main.c
+index 8ba8b072..b36cb500 100644
+--- a/lsteamclient/steamclient_main.c
++++ b/lsteamclient/steamclient_main.c
+@@ -624,6 +624,8 @@ int8_t CDECL Steam_IsKnownInterface( const char *pchVersion )
+ 
+ void CDECL Steam_NotifyMissingInterface( int32_t hSteamPipe, const char *pchVersion )
+ {
++    // This function is missing on macOS steamclient.dylib
++    return;
+     struct steamclient_Steam_NotifyMissingInterface_params params = {.pipe = hSteamPipe, .version = pchVersion};
+     TRACE("%u %s\n", hSteamPipe, pchVersion);
+     load_steamclient();
+-- 
+2.50.1 (Apple Git-155)
+

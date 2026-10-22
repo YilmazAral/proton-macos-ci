@@ -1,0 +1,26 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: mrvictory1 <108172910+mrvictory1@users.noreply.github.com>
+Date: Mon, 19 Oct 2026 19:43:51 +0300
+Subject: [PATCH 1/2] HACK: lsteamclient: stub Steam_IsKnownInterface
+
+---
+ lsteamclient/steamclient_main.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/lsteamclient/steamclient_main.c b/lsteamclient/steamclient_main.c
+index 07c4120c..8ba8b072 100644
+--- a/lsteamclient/steamclient_main.c
++++ b/lsteamclient/steamclient_main.c
+@@ -612,6 +612,9 @@ void CDECL Breakpad_SteamWriteMiniDumpUsingExceptionInfoWithBuildId(int a, int b
+ 
+ int8_t CDECL Steam_IsKnownInterface( const char *pchVersion )
+ {
++    // This function is missing on macOS steamclient.dylib
++    TRACE("FIXME: Reporting %s as available.\n", pchVersion);
++    return 1;
+     struct steamclient_Steam_IsKnownInterface_params params = {.version = pchVersion};
+     TRACE("%s\n", pchVersion);
+     load_steamclient();
+-- 
+2.50.1 (Apple Git-155)
+
