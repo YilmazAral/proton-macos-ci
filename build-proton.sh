@@ -69,6 +69,8 @@ for i in "${to_patch[@]}" ; do
     cd ..
 done
 
+./configure.sh --enable-ccache
+
 # Piper build fails due to a dependency downloaded *during* build time.
 # So instead of patching before building, start the build and let it fail.
 make piper || true
