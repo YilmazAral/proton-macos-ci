@@ -49,7 +49,7 @@ export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/libtool/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
-git clone -b bleeding_edge https://github.com/ValveSoftware/Proton/ $DEPTH
+git clone -b bleeding-edge https://github.com/ValveSoftware/Proton/ $DEPTH
 cd Proton
 
 # Upstream DXVK is not compatible with macOS
