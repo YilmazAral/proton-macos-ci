@@ -73,7 +73,7 @@ done
 
 # Piper build fails due to a dependency downloaded *during* build time.
 # So instead of patching before building, start the build and let it fail.
-make piper || true
+make UNSTRIPPED_BUILD=1 piper || true
 
 SPEECHPLAYER_DIR="obj-piper-x86_64/p/src/piper_phonemize_external-build/e/src/espeak_ng_external/src/speechPlayer/src"
 ESPEAK_PATCH_DIR=../patches/espeak
@@ -85,9 +85,9 @@ done
 # Wine build fails due to lld-link failing to link vkd3d into wined3d.
 # Custom commands that aren't easy to integrate into the build system
 # need to be executed.
-make redist || true
+make UNSTRIPPED_BUILD=1 redist || true
 ../wined3d.sh || true
-make redist || true
+make UNSTRIPPED_BUILD=1 redist || true
 ../wined3d.sh || true
 # Force a build out
-make redist || true
+make UNSTRIPPED_BUILD=1 redist || true
